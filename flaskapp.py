@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request , redirect
 from flask_mysqldb import MySQL
 app = Flask(__name__, static_url_path='')
 
@@ -11,7 +11,8 @@ mysql = MySQL(app)
 
 @app.route('/')
 def root():
-	return app.send_static_file('index.html')
+	# return app.send_static_file('index.html')
+	return redirect("https://koffeecuptales.wordpress.com/" , code=302)
 
 @app.route('/db')
 def dbTest():
